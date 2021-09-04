@@ -23,11 +23,12 @@ const server = http.createServer(app);
 const io = require('socket.io')(server);
 
 io.on('connection', (socket) => {
-  socket.on('chat msg', (message) => {
-    socket.broadcast.emit('chat msg', message);
+  socket.on('chat message', (message) => {
+    io.emit('chat message', message);
   });
   console.log('connected');
-})
+});
+
 /**
  * Listen on provided port, on all network interfaces.
  */
