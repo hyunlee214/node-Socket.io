@@ -15,3 +15,11 @@ chatForm.addEventListener('submit', (e) => {
 socket.on('chat message', (message) => {
     chatBox.appendChild(makeMessage(message));
 })
+
+const makeMessage = (message) => {
+    const msgBox = document.createElement('div');
+    msgBox.className = "message-wrapper";
+    msgBox.innerText = message;
+
+    return msgBox;
+}
