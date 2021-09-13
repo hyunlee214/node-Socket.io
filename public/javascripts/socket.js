@@ -23,3 +23,11 @@ const makeMessage = (message) => {
 
     return msgBox;
 }
+
+const makeMessage = (message, isOthers) => {
+    const msgBox = document.createElement('div');
+    const classname = isOthers;
+    msgBox.className = classname;
+
+    return msgBox;
+}
