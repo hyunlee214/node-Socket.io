@@ -13,21 +13,14 @@ chatForm.addEventListener('submit', (e) => {
 })
 
 socket.on('chat message', (message) => {
-    chatBox.appendChild(makeMessage(message));
+    chatBox.appendChild(makeMessage(message, true));
 })
-
-const makeMessage = (message) => {
-    const msgBox = document.createElement('div');
-    msgBox.className = "message-wrapper";
-    msgBox.innerText = message;
-
-    return msgBox;
-}
 
 const makeMessage = (message, isOthers) => {
     const msgBox = document.createElement('div');
-    const classname = isOthers;
+    const classname = isOthers ? "others-message-wrapper" : "my-message-wrapper";
     msgBox.className = classname;
+    msgBox.innerText = message;
 
     return msgBox;
 }
