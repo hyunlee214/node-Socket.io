@@ -17,7 +17,12 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('user connected');
-})
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+
 
 server.listen(2001, () => {
   console.log('listening on *:2001');
