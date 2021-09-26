@@ -10,7 +10,7 @@ const server = http.createServer(app);
 // });
 
 app.get('/', (req, res) => {
-  res.send('<h3>Hello socketio</h3>');
+  res.sendFile(__dirname + '/index.html');
 });
 
 server.listen(2001, () => {
