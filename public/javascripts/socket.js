@@ -4,6 +4,8 @@ const socket = io();
 
 const chatForm = document.getElementById('chat-form');
 const chatBox = document.getElementById('messages');
+// 회원 이름
+const nickname = document.getElementById('#nickname');
 
 chatForm.addEventListener('submit', (e) => {
     e.preventDefault();
