@@ -11,6 +11,7 @@
       #messages { list-style-type: none; margin: 0; padding: 0; }
       #messages > li { padding: 0.5rem 1rem; }
       #messages > li:nth-child(odd) { background: #efefef; }
+      #nickname { position: absolute; right: 0; top: 0; }
     </style>
   </head>
   <body>
@@ -18,7 +19,9 @@
     <form id="form" action="">
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
+    <input id = "nickname" placeholder="닉네임을 입력하세요"/>
     <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
       var messages = document.getElementById('messages');
@@ -27,7 +30,7 @@
 
       form.addEventListener('submit', function(e) {
         e.preventDefault();
-        socket.emit('chat message', input.value);
+        socket.emit('chat message', $('#nickname').val() + ':' + input.value);
         input.value = '';
       });
 
